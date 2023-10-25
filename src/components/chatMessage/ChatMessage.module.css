@@ -1,0 +1,44 @@
+.Message {
+    margin-bottom: .25rem;
+}
+
+.Message span {
+    margin-right: .5rem;
+    text-shadow: 0 0 .5rem rgba(0, 0, 0, .5);
+}
+
+.Message_timestamp {
+    display: block;
+    color: #ffffff;
+    background: linear-gradient(90deg, #04121e, #756532, #04121e);
+    background-size: 85% 100%; /* Увеличиваем ширину градиента на 200%, чтобы он перекрывал текст */
+    background-position: 50% 50%; /* Устанавливаем центр градиента по горизонтали и вертикали */
+    background-repeat: no-repeat; /* Отключаем повторение градиента */
+    text-align: center;
+    padding: .1rem;
+    margin: 0 auto;
+}
+
+.Message_message_user_recipient {
+    cursor: pointer;
+    margin-right: .5rem;
+    color: var(--secondary-color-light);
+}
+
+.Message_message_recipient {
+    color: #ffffff;
+}
+
+.Message_message_time {
+    color: #ffffff;
+    text-shadow: 0 0 .5rem rgba(255, 255, 255, .5);
+    margin-right: .5rem;
+}
+
+.Message_timestamp {
+    margin-bottom: .25rem;
+}
+.Message_message_user_me,
+.ChatMessage_me {
+    color: yellow;
+}

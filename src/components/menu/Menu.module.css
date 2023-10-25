@@ -1,0 +1,112 @@
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.Menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    transition: background-color .75s ease;
+}
+
+.Menu_content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transform: translateX(-100%);
+    transition: transform 0.75s;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary-color-light);
+    padding-right: 15rem;
+}
+
+.Menu_content ul {
+    list-style: none;
+}
+
+.Menu_content ul li {
+    text-decoration: none;
+}
+
+.Menu_content ul li button {
+    color: var(--secondary-color);
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: left;
+    transition: color .5s ease;
+}
+
+.Menu_content ul li button:hover {
+    color: var(--primary-color);
+}
+
+.Menu_button {
+    position: absolute;
+    width: calc(4rem + 1px);
+    height: 100%;
+    z-index: 1005;
+    background-color: var(--secondary-color);
+}
+
+.Menu input {
+    opacity: 0;
+    cursor: pointer;
+    width: 4rem;
+    height: 100%;
+    position: absolute;
+    z-index: 1010;
+    background-color: var(--secondary-color);
+}
+
+.Menu input:checked~.Menu_icon {
+    transform: perspective(1000px) rotateY(180deg);
+}
+
+.Menu input:checked~.Menu_content {
+    transform: translateX(-60%);
+}
+
+.Menu_icon {
+    width: 4rem;
+    height: 4rem;
+    transition: transform 1s ease;
+    z-index: 1007;
+}
+
+.Menu_icon img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.showMenu {
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 999;
+}
+
+@media (max-width: 980px) {
+    .Menu_content {
+        justify-content: center;
+        padding-right: 0;
+    }
+
+    .Menu input:checked~.Menu_content {
+        transform: translateX(0);
+    }
+}

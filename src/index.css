@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@200;400;500&display=swap');
+
+:root {
+    --primary-color: #04121e;
+    --secondary-color: #756532;
+    --secondary-color-light: #f4d160;
+    --font-size-base: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body {
+  color: var(--primary-color);
+  font-size: var(--font-size-base);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+/* Стилизация основного скролл-бара */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Стилизация "бара" скролл-бара (перемещаемой части) */
+::-webkit-scrollbar-thumb {
+  background-color: #b3c0cb;
+}
+
+/* Стилизация трека скролл-бара (фоновой части) */
+::-webkit-scrollbar-track {
+  background-color: var(--primary-color);
+}

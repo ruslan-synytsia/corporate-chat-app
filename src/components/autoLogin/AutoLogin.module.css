@@ -1,0 +1,60 @@
+.Autologin {
+  margin-top: 0.5rem;
+  width: 300px;
+}
+
+.label_checkbox {
+  color: var(--secondary-color-light);
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  margin-bottom: 0.125rem;
+
+  margin-bottom: 0;
+  width: 95%;
+}
+
+.Autologin input {
+  cursor: pointer;
+  margin-bottom: 0;
+  width: 5%;
+  height: 100%;
+}
+
+.Autologin_label_checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.Autologin_label_checkbox span {
+  width: 100%;
+}
+
+.Autologin_custom_check_icon {
+  position: relative;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  margin-right: -.9rem;
+}
+
+.Autologin_custom_check_icon::before {
+  content: "\2713";
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  position: absolute;
+  display: none;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Autologin_label_checkbox input:checked~.Autologin_custom_check_icon::before {
+  display: block;
+}
+
+.Autologin_label_checkbox input {
+  display: none;
+}
