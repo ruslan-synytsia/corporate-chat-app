@@ -50,15 +50,15 @@
 .room_input input {
     color: #ffffff;
     background-color: transparent;
-    border: 1px solid #ffffff;
-    border-radius: .25rem;
+    border-top: 1px solid var(--secondary-color-light);
+    border-bottom: 1px solid var(--secondary-color-light);
     outline: none;
     width: 100%;
     padding: .5rem 0;
 }
 
 .room_input input::placeholder {
-    color: rgba(191, 203, 244, .5);
+    color: var(--secondary-color);
 }
 
 .room_btn {
