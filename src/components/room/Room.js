@@ -35,7 +35,7 @@ export const Room = ({ isRoomOpen, setRoomOpen }) => {
       setMessages((prevState) => ([ ...prevState, message ]));
     });
 
-    // Возвращаем функцию для очистки слушателя при размонтировании
+    // Return a function to clear the listener when unmounted
     return () => {
       socket.off('get_private_room_data');
       socket.off('get_all_private_room_messages');
