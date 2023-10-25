@@ -113,15 +113,15 @@
 
 @media (max-width: 980px) {
     .room_content {
-        padding: 3rem 0 0 0;
+        padding: 4rem 0 0 0;
     }
 
     .room_close {
         top: 1rem;
         right: 0;
         left: 0;
-        width: 100%;
         padding: .5rem 0;
+        margin: 0 auto;
         width: 50%;
     }
 
