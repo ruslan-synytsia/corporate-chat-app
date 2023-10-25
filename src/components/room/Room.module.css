@@ -113,4 +113,8 @@
         width: 100%;
         padding: 1rem 0;
     }
+
+    .room_btn {
+        padding: 1rem 0;
+    }
 }
