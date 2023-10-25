@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  // baseURL: 'https://api-corporate-chat.onrender.com',
-  baseURL: 'https://localhost:5000/api',
+  baseURL: process.env.REACT_APP_SERVER_AUTH_URL,
   withCredentials: true
 });
 
