@@ -51,7 +51,7 @@
 
     border: 1px solid var(--secondary-color-light);
     padding: .5em;
-    margin: 0 .5rem .5rem 0
+    margin: 0 0 .5rem 0
 }
 
 .ListUsers_list .myself {
@@ -78,11 +78,4 @@
     .ListUsers {
         padding: 0 1rem;
     }
-
-    /* .ListUsers_list li {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-    } */
 }
