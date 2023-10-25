@@ -11,9 +11,9 @@
     display: block;
     color: #ffffff;
     background: linear-gradient(90deg, #04121e, #756532, #04121e);
-    background-size: 85% 100%; /* Увеличиваем ширину градиента на 200%, чтобы он перекрывал текст */
-    background-position: 50% 50%; /* Устанавливаем центр градиента по горизонтали и вертикали */
-    background-repeat: no-repeat; /* Отключаем повторение градиента */
+    background-size: 85% 100%; /* Increase the width of the gradient by 100% so that it overlaps the text */
+    background-position: 50% 50%; /* Set the center of the gradient horizontally and vertically */
+    background-repeat: no-repeat; /* Disable gradient repeat */
     text-align: center;
     padding: .1rem;
     margin: 0 auto;
