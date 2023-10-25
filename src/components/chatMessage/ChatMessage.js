@@ -31,8 +31,9 @@ export const ChatMessage = ({ type, currentUser, messages, copyUsernameToInput }
 
       const currentDate = dateToLocale(timestamp);
 
-      const shouldRenderTimestamp = currentTimestamp !== currentDate; // Checking if the current timestamp is different from the previous one
-      currentTimestamp = currentDate;
+      // Проверяем, отличается ли текущий timestamp от предыдущего
+      const shouldRenderTimestamp = currentTimestamp !== currentDate;
+      currentTimestamp = currentDate; // Обновляем currentTimestamp
 
       if (shouldRenderTimestamp) {
         return (
@@ -69,8 +70,9 @@ export const ChatMessage = ({ type, currentUser, messages, copyUsernameToInput }
 
       const currentDate = dateToLocale(timestamp);
 
-      const shouldRenderTimestamp = currentTimestamp !== currentDate; // Checking if the current timestamp is different from the previous one
-      currentTimestamp = currentDate;
+      // Проверяем, отличается ли текущий timestamp от предыдущего
+      const shouldRenderTimestamp = currentTimestamp !== currentDate;
+      currentTimestamp = currentDate; // Обновляем currentTimestamp
 
       if (shouldRenderTimestamp) {
         return (

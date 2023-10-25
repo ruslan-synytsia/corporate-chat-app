@@ -32,8 +32,7 @@ export const FormAuthorization = (props) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // Helpers
-  //=================================================================================
+//============================= Helpers =============================
   const updateAutoLogin = (newValue) => {
     setValue('autoLogin', newValue);
   };
@@ -108,7 +107,7 @@ export const FormAuthorization = (props) => {
         props.type === 'login' ?
           // ================= Form for Login Page =================
           <form
-            className={style.Form_registration}
+            className={style.Form_authorization}
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className={style.logo}>
@@ -174,12 +173,12 @@ export const FormAuthorization = (props) => {
             />
 
             {/* AutoLogin component */}
-            <div className={style.Form_registration_item}>
+            <div className={style.Form_authorization_item}>
               <AutoLogin register={register} setValue={updateAutoLogin} />
             </div>
 
             {/* Submit button */}
-            <div className={style.Form_registration_item}>
+            <div className={style.Form_authorization_item}>
               <input type="submit" value="Submit" onClick={enableErrors} />
             </div>
 
@@ -193,7 +192,7 @@ export const FormAuthorization = (props) => {
           :
           // ================= Form for Registration Page =================
           <form
-            className={style.Form_registration}
+            className={style.Form_authorization}
             onSubmit={handleSubmit(onSubmit)}
           >
 
@@ -339,12 +338,12 @@ export const FormAuthorization = (props) => {
             />
 
             {/* Autologin component */}
-            <div className={style.Form_registration_item}>
+            <div className={style.Form_authorization_item}>
               <AutoLogin register={register} setValue={updateAutoLogin} />
             </div>
 
             {/* Submit button */}
-            <div className={style.Form_registration_item}>
+            <div className={style.Form_authorization_item}>
               <input type="submit" value="Submit" onClick={enableErrors} />
             </div>
           </form>

@@ -22,13 +22,11 @@ export const HomePage = () => {
     last_name: null,
     login: null,
     email: null
-  });
+  })
 
   useEffect(() => {
     dispatch(fetchChatData());
     dispatch(fetchListUsers());
-    
-    // Return a function to clear the listener when unmounted
     return () => {
       socket.disconnect();
     };

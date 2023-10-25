@@ -78,4 +78,11 @@
     .ListUsers {
         padding: 0 1rem;
     }
+
+    /* .ListUsers_list li {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    } */
 }

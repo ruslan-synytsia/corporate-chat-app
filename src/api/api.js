@@ -1,16 +1,19 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_AUTH_URL,
+  // baseURL: 'https://api-corporate-chat.onrender.com',
+  baseURL: 'https://localhost:5000/api',
   withCredentials: true
 });
 
-// Adding an interceptor to transform the structure of the response from the server
+// Добавляем interceptor для преобразования структуры ответа от сервера
 instance.interceptors.response.use(
   (response) => {
+    // Если успешный ответ от сервера, возвращаем только данные из ответа
     return response.data;
   },
   (error) => {
+    // Если произошла ошибка, обрабатываем ее здесь
     return Promise.reject(error.response.data);
   }
 );

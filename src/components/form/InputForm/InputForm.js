@@ -16,7 +16,7 @@ export const InputForm = ({
 }) => {
 
   return (
-    <div className={style.Form_registration_item}>
+    <div className={style.Form_authorization_item}>
       <label htmlFor={name}>{label}</label>
       <div className={style.passwordInput}>
         <Controller

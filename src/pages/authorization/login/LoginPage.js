@@ -16,7 +16,7 @@ export const LoginPage = () => {
 
   return (
     <div className={style.container}>
-      <div className={style.Page_registration}>
+      <div className={style.Page_login}>
         <div className={style.bcg_img}></div>
         <div className={style.grid}>
           <div className={style.col_1}>
