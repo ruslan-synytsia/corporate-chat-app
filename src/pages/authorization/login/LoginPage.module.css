@@ -10,7 +10,7 @@ h1 {
   align-items: center;
 
   position: relative;
-  width: clamp(400px, 100%, 1365px);
+  width: clamp(0, 100%, 1365px);
   height: 100vh;
   margin: 0 auto;
 }
