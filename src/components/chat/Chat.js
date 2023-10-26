@@ -21,7 +21,6 @@ export const Chat = () => {
   useEffect(() => {
     // We track updates in the array of messages (requests) and scroll down
     if (messagesContainerRef.current) {
-      console.log('messagesContainerRef.current', messagesContainerRef.current)
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
   }, [requests]);
@@ -34,11 +33,9 @@ export const Chat = () => {
 
   useEffect(() => {
     socket.on('get_public_all_messages', (allMessages) => {
-      // Обработайте полученные сообщения, например, сохраните их в состояние компонента
       setRequests(allMessages);
     });
 
-    // Обработка события текущего 'message' от сервера
     socket.on('get_public_message', (message) => {
       setRequests((prevMessages) => [...prevMessages, message]);
     });

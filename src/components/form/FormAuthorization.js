@@ -105,7 +105,7 @@ export const FormAuthorization = (props) => {
       <Modal isOpen={modalOpen}><span>{serverMessage}</span></Modal>
       {
         props.type === 'login' ?
-          // ================= Form for Login Page =================
+          // Form login option =================
           <form
             className={style.Form_authorization}
             onSubmit={handleSubmit(onSubmit)}
@@ -190,7 +190,7 @@ export const FormAuthorization = (props) => {
 
           </form>
           :
-          // ================= Form for Registration Page =================
+          // Form registration option =================
           <form
             className={style.Form_authorization}
             onSubmit={handleSubmit(onSubmit)}

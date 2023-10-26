@@ -13,7 +13,6 @@
   animation: displayIn .5s ease;
 }
 
-/* Стили для контента модального окна */
 .modal_content {
   display: flex;
   flex-direction: column;
@@ -29,7 +28,6 @@
   animation: slideIn 0.25s ease;
 }
 
-/* Кнопка "OK" */
 .modal_ok {
   display: block;
   margin-top: 1.5rem;
@@ -51,7 +49,6 @@
   }
 }
 
-/* Анимация для появления модального окна */
 @keyframes slideIn {
   from {
     transform: scale(0);

@@ -25,15 +25,15 @@ export const ChatMessage = ({ type, currentUser, messages, copyUsernameToInput }
     return `${number} ${months[month]} ${year}, ${days[day]}`;
   }
 
+  // Private chat option
   if (type === 'private') {
     return messages.map((message) => {
       const { timestamp, login, text } = message;
 
       const currentDate = dateToLocale(timestamp);
 
-      // Проверяем, отличается ли текущий timestamp от предыдущего
       const shouldRenderTimestamp = currentTimestamp !== currentDate;
-      currentTimestamp = currentDate; // Обновляем currentTimestamp
+      currentTimestamp = currentDate;
 
       if (shouldRenderTimestamp) {
         return (
@@ -64,15 +64,15 @@ export const ChatMessage = ({ type, currentUser, messages, copyUsernameToInput }
     });
   }
 
+  // Public chat option =================
   if (type === 'public') {
     return messages.map((message) => {
       const { timestamp, login, recipient, text } = message;
 
       const currentDate = dateToLocale(timestamp);
 
-      // Проверяем, отличается ли текущий timestamp от предыдущего
       const shouldRenderTimestamp = currentTimestamp !== currentDate;
-      currentTimestamp = currentDate; // Обновляем currentTimestamp
+      currentTimestamp = currentDate;
 
       if (shouldRenderTimestamp) {
         return (

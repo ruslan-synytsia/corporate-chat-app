@@ -15,15 +15,9 @@ export const LoginPage = () => {
   }, [accessAuth]);
 
   return (
-    <div className={style.container}>
-      <div className={style.Page_login}>
-        <div className={style.bcg_img}></div>
-        <div className={style.grid}>
-          <div className={style.col_1}>
-            <FormAuthorization type={'login'} />
-          </div>
-        </div>
-      </div>
+    <div className={style.Login_page}>
+      <div className={style.bcg_img}></div>
+      <FormAuthorization type={'login'} />
     </div>
   )
 }

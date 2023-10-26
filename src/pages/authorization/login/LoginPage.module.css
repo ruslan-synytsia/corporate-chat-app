@@ -1,29 +1,11 @@
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.container {
+.Login_page {
   display: flex;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
+  
   position: relative;
-  width: clamp(0, 100%, 1365px);
+  width: 100vw;
   height: 100vh;
-  margin: 0 auto;
-}
-
-.Page_login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  position: absolute;
-  height: 100vh;
-  width: 100%;
 }
 
 .bcg_img {
@@ -38,67 +20,3 @@ h1 {
   background-size: cover;
   height: 100%;
 }
-
-.grid {
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  width: 100%;
-}
-
-.col_1 {
-  padding: 0 2rem;
-  grid-column: 2/3;
-}
-
-/* .Form_registration {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background-color: var(--primary-color);
-  border-radius: 2rem;
-  padding: 3rem 0 2rem 0;
-}
-
-.Form_registration h2 {
-  color: var(--secondary-color-light);
-}
-
-.Form_registration input {
-  color: var(--secondary-color);
-  font-weight: 500;
-  font-size: 1rem;
-  text-align: center;
-  padding: 0.25rem 0;
-  margin-bottom: 0.5rem;
-  border: 2px solid var(--secondary-color);
-  border-radius: .5rem;
-  width: 300px;
-  transition: border .5s ease;
-}
-
-.Form_registration input:focus {
-  outline: none;
-  border: 2px solid var(--secondary-color-light);
-}
-
-.Form_registration input::placeholder {
-  color: var(--secondary-color);
-  font-weight: 200;
-}
-
-.Form_registration input[type="submit"] {
-  border: none;
-  background-color: var(--secondary-color);
-  color: #ffffff;
-  font-weight: 500;
-  cursor: pointer;
-  margin: 1rem 0;
-  padding: 0.5rem 0;
-  transition: background-color .5s ease;
-}
-
-.Form_registration input[type="submit"]:hover {
-  background-color: var(--secondary-color-light);
-} */

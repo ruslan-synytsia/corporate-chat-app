@@ -1,57 +1,7 @@
-h1 {
-  font-size: 3rem;
-  line-height: 3rem;
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-  width: clamp(0, 100%, 1365px);
-  height: 100vh;
-  margin: 0 auto;
-}
-
-.bcg_img {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.Page_registration {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-}
-
-.grid {
+.Registration_page {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 100%;
-  width: 100%;
-}
-
-.col_1,
-.col_2 {
-  padding: 0 2rem;
+  grid-template-columns: 2fr 5fr;
+  height: 100vh;
 }
 
 .col_1 {
@@ -73,7 +23,7 @@ h1 {
 .col_2 .content {
   color: var(--primary-color);
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin: 2rem 0 0 2rem;
 }
 
 .col_2 .content p {
@@ -107,11 +57,10 @@ h1 {
   color: var(--secondary-color-light);
 }
 
-.logo {
+.col_1 .logo {
   display: flex;
-  justify-content: flex-start;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  justify-content: center;
+  margin: 3rem 0 0 0;
 }
 
 .logo img {
@@ -159,14 +108,9 @@ h1 {
 }
 
 @media (max-width: 720px) {
-  .grid {
-    grid-template-columns: 1fr 0;
-  }
-
-  .col_1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .Registration_page {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .col_2 {
