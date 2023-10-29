@@ -32,7 +32,8 @@ export const FormAuthorization = (props) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
-//============================= Helpers =============================
+  // Helpers
+  // ============================================================================
   const updateAutoLogin = (newValue) => {
     setValue('autoLogin', newValue);
   };
@@ -58,11 +59,11 @@ export const FormAuthorization = (props) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
-      setPasswordVisible((prevVisible) => !prevVisible);
+    setPasswordVisible((prevVisible) => !prevVisible);
   };
 
-  //============================ UseEffect function =============================
-
+  // UseEffect
+  // ============================================================================
   useEffect(() => {
     if (props.type === 'login') {
       if (statusCode === 1 && message) {
@@ -84,7 +85,8 @@ export const FormAuthorization = (props) => {
     }
   }, [props.type, statusCode, message]);
 
-  //============================= Function onSubmit =============================
+  // Function onSubmit
+  // ============================================================================
   const onSubmit = async (data) => {
     try {
       if (props.type === 'login') {
@@ -105,12 +107,12 @@ export const FormAuthorization = (props) => {
       <Modal isOpen={modalOpen}><span>{serverMessage}</span></Modal>
       {
         props.type === 'login' ?
-          // Form login option =================
+          // ================= Form for Login Page =================
           <form
             className={style.Form_authorization}
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div className={style.logo}>
+            <div className={style.logo_center}>
               <img src={logo} alt="Logo" />
               <div className={style.logo_title}>
                 <span className={style.logo_title_part_one}>Corporate</span>
@@ -190,11 +192,19 @@ export const FormAuthorization = (props) => {
 
           </form>
           :
-          // Form registration option =================
+          // ================= Form for Registration Page =================
           <form
             className={style.Form_authorization}
             onSubmit={handleSubmit(onSubmit)}
           >
+
+            <div className={style.logo}>
+              <img src={logo} alt="Logo" />
+              <div className={style.logo_title}>
+                <span className={style.logo_title_part_one}>Corporate</span>
+                <span className={style.logo_title_part_two}>Chat</span>
+              </div>
+            </div>
 
             {/* Link to back */}
             <div className={style.back}>

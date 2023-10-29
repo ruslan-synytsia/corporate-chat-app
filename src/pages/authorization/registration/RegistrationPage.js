@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import logo from '../../../images/logo.svg';
 import style from './RegistrationPage.module.css';
 import { FormAuthorization } from '../../../components/form/FormAuthorization';
 
@@ -18,13 +17,6 @@ export const RegistrationPage = () => {
   return (
     <div className={style.Registration_page}>
       <div className={style.col_1}>
-        <div className={style.logo}>
-          <img src={logo} alt="Logo" />
-          <div className={style.logo_title}>
-            <span className={style.logo_title_part_one}>Corporate</span>
-            <span className={style.logo_title_part_two}>Chat</span>
-          </div>
-        </div>
         <FormAuthorization />
       </div>
       <div className={style.col_2}>

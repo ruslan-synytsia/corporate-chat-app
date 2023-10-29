@@ -1,3 +1,38 @@
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  width: 300px;
+}
+
+.logo_center {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.logo img,
+.logo_center img {
+  width: 4rem;
+}
+
+.logo_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0 .5rem;
+}
+
+.logo_title_part_one {
+  color: var(--secondary-color);
+}
+
+.logo_title_part_two {
+  color: var(--secondary-color-light);
+}
+
 .Form_authorization {
   display: flex;
   flex-direction: column;
@@ -6,7 +41,7 @@
 
   background-color: var(--primary-color);
   border-radius: 2rem;
-  padding: 3rem 1.5rem;
+  padding: 1.5rem;
 }
 
 .Form_authorization_item {
@@ -15,12 +50,13 @@
   justify-content: center;
 
   position: relative;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.2rem;
 }
 
 .Form_authorization_item label {
   color: #ffffff;
   position: relative;
+  margin-bottom: 0.1rem;
 }
 
 .Form_authorization_item input {
@@ -61,35 +97,11 @@
   background-color: var(--secondary-color-light);
 }
 
-.logo {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.logo img {
-  width: 5rem;
-}
-
-.logo_title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 1rem;
-  padding: 0 .5rem;
-}
-
-.logo_title_part_one {
-  color: var(--secondary-color);
-}
-
-.logo_title_part_two {
-  color: var(--secondary-color-light);
-}
-
 .back {
+  text-align: left;
   margin-bottom: 1rem;
-  text-align: center;
-  width: 100%;
+  width: 300px;
+  margin-bottom: 1rem;
 }
 
 .back span {

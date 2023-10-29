@@ -3,6 +3,7 @@ import { useSocket } from '../../context/SocketProvider';
 import style from './Chat.module.css';
 import { useSelector } from 'react-redux';
 import { ChatMessage } from '../chatMessage/ChatMessage';
+import { Waiting } from '../waiting/Waiting';
 
 export const Chat = () => {
   const messagesContainerRef = useRef(null);
@@ -35,7 +36,6 @@ export const Chat = () => {
     socket.on('get_public_all_messages', (allMessages) => {
       setRequests(allMessages);
     });
-
     socket.on('get_public_message', (message) => {
       setRequests((prevMessages) => [...prevMessages, message]);
     });
@@ -62,15 +62,16 @@ export const Chat = () => {
     <div className={style.Chat}>
       <h2>Public Chat</h2>
       <div className={style.Chat_content} ref={messagesContainerRef}>
-        {content && requests ? 
-          <ChatMessage 
-            type={'public'} 
-            currentUser={content.login} 
-            messages={requests}
-            copyUsernameToInput={copyUsernameToInput}
-          /> 
+        {
+          content && requests ? 
+            <ChatMessage 
+              type={'public'} 
+              currentUser={content.login} 
+              messages={requests}
+              copyUsernameToInput={copyUsernameToInput}
+            /> 
           : 
-          null
+          <Waiting />
         }
       </div>
       <input

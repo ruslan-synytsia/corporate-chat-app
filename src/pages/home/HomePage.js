@@ -55,18 +55,16 @@ export const HomePage = () => {
   }, [content]);
 
   return (
-    <div className={style.container}>
-      <div className={style.Home_page}>
-        {/* <Menu /> */}
-        <div className={style.Home_page_col_1}>
-          <div className={style.content}>
-            <Chat />
-          </div>
+    <div className={style.Home_page}>
+      {/* <Menu /> */}
+      <div className={style.Home_page_col_1}>
+        <div className={style.content}>
+          <Chat />
         </div>
-        <div className={style.Home_page_col_2}>
-          <div className={style.content}>
-            <ListUsers />
-          </div>
+      </div>
+      <div className={style.Home_page_col_2}>
+        <div className={style.content}>
+          <ListUsers />
         </div>
       </div>
     </div>

@@ -1,20 +1,3 @@
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-    width: clamp(0, 100%, 1365px);
-    height: 100vh;
-    margin: 0 auto;
-}
-
 .Home_page {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -22,7 +5,6 @@ h1 {
     height: 100%;
     width: calc(100% + 1px);
     background-color: var(--primary-color);
-    /* margin-left: 4rem; */
     margin-left: -1px;
 }
 

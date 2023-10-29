@@ -5,14 +5,12 @@ const instance = axios.create({
   withCredentials: true
 });
 
-// Добавляем interceptor для преобразования структуры ответа от сервера
+// Adding an interceptor to transform the structure of the response from the server
 instance.interceptors.response.use(
   (response) => {
-    // Если успешный ответ от сервера, возвращаем только данные из ответа
     return response.data;
   },
   (error) => {
-    // Если произошла ошибка, обрабатываем ее здесь
     return Promise.reject(error.response.data);
   }
 );

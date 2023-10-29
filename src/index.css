@@ -36,3 +36,27 @@ body {
 ::-webkit-scrollbar-track {
   background-color: var(--primary-color);
 }
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.preload_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .95);
+    z-index: 1000;
+}
+
+.hide {
+  display: none;
+}

@@ -1,0 +1,57 @@
+.Waiting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b121d;
+    height: 100%;
+}
+
+.Waiting_animate {
+    width: 12rem;
+}
+
+@keyframes expandShrink {
+    0% {
+        width: 1rem;
+        transform: translateX(0);
+    }
+
+    25% {
+        width: 12rem;
+        transform: translateX(0);
+    }
+
+    50% {
+        width: 1rem;
+        transform: translateX(11rem);
+    }
+
+    75% {
+        width: 12rem;
+        transform: translateX(0);
+    }
+
+    100% {
+        width: 1rem;
+        transform: translateX(0);
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: #4584e9;
+    }
+    100% {
+        background-color: #f29148;
+    }
+}
+
+.Waiting_animate_circle {
+    height: 1rem;
+    width: 1rem;
+    
+    border-radius: .5rem;
+    position: relative;
+    margin: .5rem 0;
+    animation: expandShrink 4s linear infinite, changeColor 2s linear infinite alternate;
+}
