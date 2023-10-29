@@ -9,7 +9,6 @@ export const App = () => {
 
   return (
     <div className="App">
-      {console.log(loading)}
       <Preloader loading={loading} />
       <MainLayer />
     </div>

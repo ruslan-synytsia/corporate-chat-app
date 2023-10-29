@@ -25,6 +25,7 @@ export const HomePage = () => {
   })
 
   useEffect(() => {
+    console.log('Home Page')
     dispatch(fetchChatData());
     dispatch(fetchListUsers());
     return () => {
