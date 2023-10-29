@@ -8,6 +8,7 @@ import { Room } from '../room/Room';
 export const ListUsers = () => {
   const socket = useSocket();
   const dispatch = useDispatch();
+
   const content = useSelector((state) => state.chatData.content);
   const usersList = useSelector((state) => state.chatData.usersList);
   const [updatedUsersList, setUpdatedUsersList] = useState([]);
@@ -38,23 +39,17 @@ export const ListUsers = () => {
   }, [usersList]);
 
   useEffect(() => {
-    if (updatedUsersList.length > 0 && active !== 'favorite') {
-      setOnline(updatedUsersList, onlineIds)
+    if (active === 'favorite' && updatedUsersList.length > 0) {
+      const list = updatedUsersList.filter((user) => favoriteUserIds.includes(user._id));
+      setUsers(list);
     }
-  }, [updatedUsersList, onlineIds]);
+  }, [updatedUsersList, favoriteUserIds, onlineIds]);
 
   useEffect(() => {
     if (active === 'all' && updatedUsersList.length > 0) {
       setAll(updatedUsersList)
     }
   }, [updatedUsersList, active]);
-
-  useEffect(() => {
-    if (active === 'favorite' && updatedUsersList.length > 0) {
-      const list = updatedUsersList.filter((user) => favoriteUserIds.includes(user._id));
-      setUsers(list);
-    }
-  }, [favoriteUserIds, active]);
 
   useEffect(() => {
     if (active === 'online') {
@@ -64,12 +59,12 @@ export const ListUsers = () => {
       dispatch(fetchListUsers());
     }
     if (active === 'favorite') {
-      setFavorite()
+      socket.emit('get_favorite_users_ids', content.userId)
     }
   }, [active]);
 
   const createConversation = (currentId, recepientId) => {
-    socket.emit('join_to_private_room_with_recepient', {currentId, recepientId});
+    socket.emit('join_to_private_room_with_recepient', { currentId, recepientId });
     setRoomOpen(true);
   }
 
@@ -83,10 +78,6 @@ export const ListUsers = () => {
   function setAll(listUsers) {
     const list = listUsers.map((user) => user);
     setUsers(list);
-  }
-
-  function setFavorite() {
-    socket.emit('get_favorite_users_ids', content.userId)
   }
 
   return (
@@ -105,17 +96,17 @@ export const ListUsers = () => {
         {
           users.map(user => (
             content.userId !== user._id ?
-            <li key={user._id}>
-              <span>{`${user.login}`}</span>
-              <span 
-                className={style.send_message}
-                onClick={() => createConversation(content.userId, user._id)}
-              >
-                Write me
-              </span>
-            </li>
-            :
-            null
+              <li key={user._id}>
+                <span>{`${user.login}`}</span>
+                <span
+                  className={style.send_message}
+                  onClick={() => createConversation(content.userId, user._id)}
+                >
+                  Write me
+                </span>
+              </li>
+              :
+              null
           ))
         }
       </ul>

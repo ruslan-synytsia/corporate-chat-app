@@ -8,7 +8,7 @@ const initialChatState = {
   message: null,
   content: null,
   usersList: [],
-  accessData: true,
+  access: true,
   error: null,
 };
 
@@ -53,7 +53,8 @@ const chatSlice = createSlice({
       state.loading = false;
       state.statusCode = action.payload.statusCode;
       state.message = action.payload.message;
-      state.accessData = action.payload.access;
+      console.log('action.payload.access', action.payload.access)
+      state.access = action.payload.access;
       state.content = action.payload.content;
       state.error = null;
     });
@@ -70,7 +71,7 @@ const chatSlice = createSlice({
       state.loading = false;
       state.statusCode = action.payload.statusCode;
       state.message = action.payload.message;
-      state.accessData = action.payload.access;
+      state.access = action.payload.access;
       state.usersList = action.payload.usersList;
       state.error = null;
     });

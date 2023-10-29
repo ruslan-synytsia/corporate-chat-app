@@ -6,6 +6,7 @@ import { Preloader } from './components/preloader/Preloader';
 
 export const App = () => {
   const { loading, error } = useSelector((state) => state.authData);
+  console.log('APP')
 
   return (
     <div className="App">

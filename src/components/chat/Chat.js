@@ -2,10 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSocket } from '../../context/SocketProvider';
 import style from './Chat.module.css';
 import { useSelector } from 'react-redux';
+// import { fetchChatData } from '../../redux-store/chatSlice';
 import { ChatMessage } from '../chatMessage/ChatMessage';
 import { Waiting } from '../waiting/Waiting';
 
 export const Chat = () => {
+  // const dispatch = useDispatch();
+
   const messagesContainerRef = useRef(null);
   const content = useSelector((state) => state.chatData.content);
   const socket = useSocket();
@@ -20,6 +23,16 @@ export const Chat = () => {
   });
 
   useEffect(() => {
+    // dispatch(fetchChatData());
+    socket.on('get_public_all_messages', (allMessages) => {
+      setRequests(allMessages);
+    });
+    socket.on('get_public_message', (message) => {
+      setRequests((prevMessages) => [...prevMessages, message]);
+    });
+  }, []);
+
+  useEffect(() => {
     // We track updates in the array of messages (requests) and scroll down
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
@@ -31,15 +44,6 @@ export const Chat = () => {
       setMessageInput((prevState) => ({ ...prevState, userId: content.userId, login: content.login }));
     }
   }, [content])
-
-  useEffect(() => {
-    socket.on('get_public_all_messages', (allMessages) => {
-      setRequests(allMessages);
-    });
-    socket.on('get_public_message', (message) => {
-      setRequests((prevMessages) => [...prevMessages, message]);
-    });
-  }, []);
 
   const sendMessage = () => {
     socket.emit('save_public_message', messageInput);

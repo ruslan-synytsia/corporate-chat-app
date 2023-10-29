@@ -16,7 +16,6 @@ instance.interceptors.response.use(
 );
 
 export const sendLoginDataToServer = async (data) => {
-  console.log(data)
   try {
     const response = await instance.post('/login', data);
     return response;
