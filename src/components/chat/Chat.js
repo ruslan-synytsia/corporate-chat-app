@@ -67,7 +67,7 @@ export const Chat = () => {
       <h2>Public Chat</h2>
       <div className={style.Chat_content} ref={messagesContainerRef}>
         {
-          content && requests ? 
+          content && requests.length !== 0 ? 
             <ChatMessage 
               type={'public'} 
               currentUser={content.login} 
