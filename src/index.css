@@ -22,17 +22,17 @@ body {
   font-weight: 400;
 }
 
-/* Стилизация основного скролл-бара */
+/* Styling the main scroll bar */
 ::-webkit-scrollbar {
   width: 15px;
 }
 
-/* Стилизация "бара" скролл-бара (перемещаемой части) */
+/* Styling the "bar" of the scroll bar (movable part) */
 ::-webkit-scrollbar-thumb {
   background-color: #b3c0cb;
 }
 
-/* Стилизация трека скролл-бара (фоновой части) */
+/* Styling the scroll bar track (background part) */
 ::-webkit-scrollbar-track {
   background-color: var(--primary-color);
 }
@@ -44,17 +44,17 @@ h1 {
 }
 
 .preload_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, .95);
-    z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, .95);
+  z-index: 1000;
 }
 
 .hide {
