@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import style from './Menu.module.css';
-import myImage from '../../images/menu.svg';
+import arrow from '../../images/menu.svg';
+import { ListUsers } from '../listUsers/ListUsers';
 
 export const Menu = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -25,25 +26,13 @@ export const Menu = () => {
   }, [isChecked]);
 
   return (
-    <div className={`${style.Menu} ${showMenu ? style.showMenu : ''}`}>
-      <div className={style.Menu_button}></div>
-      <input 
-        checked={isChecked}
-        onChange={() => setIsChecked(!isChecked)}
-        type="checkbox" 
-      />
-      <div className={style.Menu_icon}>
-        <img src={myImage} alt="" />
+    <div className={style.Mobile_menu}>
+      <input type='checkbox' />
+      <div className={style.Mobile_menu_btn}>
+        <img src={arrow} alt="" />
       </div>
-      <div className={style.Menu_content}>
-        <ul>
-          <li><button>Account</button></li>
-          <li><button>Peaple</button></li>
-          <li><button>Contacts</button></li>
-          <li><button>Conversations</button></li>
-          <li><button>Topics</button></li>
-          <li><button>About</button></li>
-        </ul>
+      <div className={style.Mobile_menu_content}>
+        <ListUsers />
       </div>
     </div>
   )

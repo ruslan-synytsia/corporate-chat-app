@@ -3,6 +3,7 @@
     flex-direction: column;
 
     position: absolute;
+    color: #ffffff;
     top: 0;
     left: 0;
     padding: 2rem 2rem 2rem 0;
@@ -27,6 +28,7 @@
 }
 
 .ListUsers_nav ul li {
+    color: #ffffff;
     cursor: pointer;
     padding: .5rem 0 .5rem .5rem;
     background-color: var(--secondary-color);
@@ -76,6 +78,6 @@
 
 @media (max-width: 980px) {
     .ListUsers {
-        padding: 0 1rem;
+        padding: 2rem;
     }
 }
