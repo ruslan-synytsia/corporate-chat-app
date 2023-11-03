@@ -48,6 +48,8 @@
 }
 
 .room_input input {
+    position: relative;
+    opacity: 1;
     color: #ffffff;
     background-color: transparent;
     border-top: 1px solid var(--secondary-color-light);
@@ -114,6 +116,7 @@
 @media (max-width: 980px) {
     .room_content {
         padding: 4rem 0 0 0;
+        height: 85%;
     }
 
     .room_close {
