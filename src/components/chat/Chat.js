@@ -2,13 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSocket } from '../../context/SocketProvider';
 import style from './Chat.module.css';
 import { useSelector } from 'react-redux';
-// import { fetchChatData } from '../../redux-store/chatSlice';
 import { ChatMessage } from '../chatMessage/ChatMessage';
 import { Waiting } from '../waiting/Waiting';
 
 export const Chat = () => {
-  // const dispatch = useDispatch();
-
   const messagesContainerRef = useRef(null);
   const content = useSelector((state) => state.chatData.content);
   const socket = useSocket();
@@ -23,7 +20,6 @@ export const Chat = () => {
   });
 
   useEffect(() => {
-    // dispatch(fetchChatData());
     socket.on('get_public_all_messages', (allMessages) => {
       setRequests(allMessages);
     });
@@ -58,7 +54,6 @@ export const Chat = () => {
   // =============================================================================
   const copyUsernameToInput = (login) => {
     const updatedMessageInput = { ...messageInput, text: `${login}, `, recipient: login };
-    console.log('updatedMessageInput: ', updatedMessageInput)
     setMessageInput(updatedMessageInput);
   };
 

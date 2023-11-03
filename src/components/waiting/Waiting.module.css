@@ -1,9 +1,21 @@
 .Waiting {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #0b121d;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
     height: 100%;
+    width: 100%;
+    z-index: 1001;
+}
+
+.Waiting span {
+    color: var(--secondary-color-light);
+    letter-spacing: .2rem;
 }
 
 .Waiting_animate {
