@@ -20,12 +20,21 @@ export const Chat = () => {
   });
 
   useEffect(() => {
-    socket.on('get_public_all_messages', (allMessages) => {
+    const handleGetPublicAllMessages = (allMessages) => {
       setRequests(allMessages);
-    });
-    socket.on('get_public_message', (message) => {
+    };
+  
+    const handleGetPublicMessage = (message) => {
       setRequests((prevMessages) => [...prevMessages, message]);
-    });
+    };
+  
+    socket.on('get_public_all_messages', handleGetPublicAllMessages);
+    socket.on('get_public_message', handleGetPublicMessage);
+
+    return () => {
+      socket.off('get_public_all_messages', handleGetPublicAllMessages);
+      socket.off('get_public_message', handleGetPublicMessage);
+    };
   }, []);
 
   useEffect(() => {

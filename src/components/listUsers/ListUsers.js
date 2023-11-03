@@ -19,17 +19,33 @@ export const ListUsers = () => {
   const [active, setActive] = useState('online');
 
   useEffect(() => {
-    socket.on('set_online_user_ids', onlineUserIds => {
+    const handleSetOnlineUserIds = (onlineUserIds) => {
+      console.log(onlineUserIds)
       if (onlineUserIds.length > 0) {
         dispatch(fetchListUsers());
         setOnlineIds(onlineUserIds);
       }
-    });
-    socket.on('set_favorite_users_ids', favoriteIds => {
+    };
+
+    const handleSetFavoriteUsersIds = (favoriteIds) => {
       if (favoriteIds.length > 0) {
         setFavoriteUserIds(favoriteIds)
       }
-    });
+    };
+
+    const handleNewPrivateMessageNotification = (messageNotification) => {
+      console.log('new_private_message_notification', messageNotification)
+    };
+
+    socket.on('set_online_user_ids', handleSetOnlineUserIds);
+    socket.on('set_favorite_users_ids', handleSetFavoriteUsersIds);
+    socket.on('new_private_message_notification', handleNewPrivateMessageNotification);
+
+    return () => {
+      socket.off('set_online_user_ids', handleSetOnlineUserIds);
+      socket.off('set_favorite_users_ids', handleSetFavoriteUsersIds);
+      socket.off('new_private_message_notification', handleNewPrivateMessageNotification);
+    };
   }, []);
 
   useEffect(() => {
@@ -39,6 +55,10 @@ export const ListUsers = () => {
   }, [usersList]);
 
   useEffect(() => {
+    if (active === 'online' && updatedUsersList.length > 0) {
+      setOnline(updatedUsersList, onlineIds);
+    }
+
     if (active === 'favorite' && updatedUsersList.length > 0) {
       const list = updatedUsersList.filter((user) => favoriteUserIds.includes(user._id));
       setUsers(list);
@@ -61,7 +81,7 @@ export const ListUsers = () => {
     if (active === 'favorite') {
       socket.emit('get_favorite_users_ids', content.userId)
     }
-  }, [active]);
+  }, [onlineIds, active]);
 
   const createConversation = (currentId, recepientId) => {
     socket.emit('join_to_private_room_with_recepient', { currentId, recepientId });

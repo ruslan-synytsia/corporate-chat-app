@@ -53,7 +53,6 @@ const chatSlice = createSlice({
       state.loading = false;
       state.statusCode = action.payload.statusCode;
       state.message = action.payload.message;
-      console.log('action.payload.access', action.payload.access)
       state.access = action.payload.access;
       state.content = action.payload.content;
       state.error = null;

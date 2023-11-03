@@ -5,8 +5,7 @@ import { MainLayer } from './layouts/main-layer';
 import { Preloader } from './components/preloader/Preloader';
 
 export const App = () => {
-  const { loading, error } = useSelector((state) => state.authData);
-  console.log('APP')
+  const { loading } = useSelector((state) => state.authData);
 
   return (
     <div className="App">
