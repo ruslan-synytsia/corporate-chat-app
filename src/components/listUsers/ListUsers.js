@@ -35,8 +35,6 @@ export const ListUsers = () => {
     };
 
     const handleNewPrivateMessageNotification = (notification) => {
-      console.log('notification', notification);
-    
       setNotifications(prevState => {
         // Создаем копию предыдущего состояния массива
         const updatedNotifications = [...prevState];
@@ -61,7 +59,6 @@ export const ListUsers = () => {
     };    
 
     const handleAllPrivateMessageNotifications = (notifications) => {
-      console.log(notifications)
       if (notifications.length > 0) {
         setNotifications(notifications)
       }
@@ -151,7 +148,6 @@ export const ListUsers = () => {
             content.userId !== user._id ?
               <li key={user._id}>
                 <span>{`${user.login}`}</span>
-                {console.log('notifications', notifications)}
                 <Notification notifications={notifications} userId={user._id} />
                 <span
                   className={style.send_message}
