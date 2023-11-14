@@ -1,0 +1,15 @@
+.Notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    font-size: .75rem;
+    padding: .2rem;
+    min-width: 1.35rem;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: #fff;
+    top: -.5rem;
+    left: 0;
+}

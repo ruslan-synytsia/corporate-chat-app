@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchListUsers } from '../../redux-store/chatSlice';
 import style from './ListUsers.module.css';
 import { Room } from '../room/Room';
+import { Notification } from '../notification/Notification';
 
 export const ListUsers = () => {
   const socket = useSocket();
@@ -17,10 +18,10 @@ export const ListUsers = () => {
   const [users, setUsers] = useState([]);
   const [isRoomOpen, setRoomOpen] = useState(false);
   const [active, setActive] = useState('online');
+  const [notifications, setNotifications] = useState([]); 
 
   useEffect(() => {
     const handleSetOnlineUserIds = (onlineUserIds) => {
-      console.log(onlineUserIds)
       if (onlineUserIds.length > 0) {
         dispatch(fetchListUsers());
         setOnlineIds(onlineUserIds);
@@ -33,18 +34,49 @@ export const ListUsers = () => {
       }
     };
 
-    const handleNewPrivateMessageNotification = (messageNotification) => {
-      console.log('new_private_message_notification', messageNotification)
+    const handleNewPrivateMessageNotification = (notification) => {
+      console.log('notification', notification);
+    
+      setNotifications(prevState => {
+        // Создаем копию предыдущего состояния массива
+        const updatedNotifications = [...prevState];
+    
+        // Ищем объект в массиве, у которого совпадают userId, roomId и recipientId
+        const existingNotification = updatedNotifications.find(
+          item => item.userId === notification.userId
+            && item.roomId === notification.roomId
+            && item.recipientId === notification.recipientId
+        );
+    
+        if (existingNotification) {
+          // Если существует, увеличиваем countMessages
+          existingNotification.countMessages = notification.countMessages;
+        } else {
+          // В противном случае, добавляем новый объект в массив
+          updatedNotifications.push(notification);
+        }
+    
+        return updatedNotifications;
+      });
+    };    
+
+    const handleAllPrivateMessageNotifications = (notifications) => {
+      console.log(notifications)
+      if (notifications.length > 0) {
+        setNotifications(notifications)
+      }
     };
 
     socket.on('set_online_user_ids', handleSetOnlineUserIds);
     socket.on('set_favorite_users_ids', handleSetFavoriteUsersIds);
-    socket.on('new_private_message_notification', handleNewPrivateMessageNotification);
+    socket.on('set_new_private_message_notification', handleNewPrivateMessageNotification);
+    socket.on('set_all_private_message_notifications', handleAllPrivateMessageNotifications);
 
     return () => {
       socket.off('set_online_user_ids', handleSetOnlineUserIds);
       socket.off('set_favorite_users_ids', handleSetFavoriteUsersIds);
-      socket.off('new_private_message_notification', handleNewPrivateMessageNotification);
+      socket.off('set_new_private_message_notification', handleNewPrivateMessageNotification);
+      socket.off('set_all_private_message_notifications', handleAllPrivateMessageNotifications);
     };
   }, []);
 
@@ -83,8 +115,9 @@ export const ListUsers = () => {
     }
   }, [onlineIds, active]);
 
-  const createConversation = (currentId, recepientId) => {
-    socket.emit('join_to_private_room_with_recepient', { currentId, recepientId });
+  const createConversation = (currentId, recipientId) => {
+    socket.emit('join_to_private_room_with_recepient', { currentId, recipientId });
+    socket.emit('reset_private_message_notification', { currentId, recipientId });
     setRoomOpen(true);
   }
 
@@ -118,6 +151,8 @@ export const ListUsers = () => {
             content.userId !== user._id ?
               <li key={user._id}>
                 <span>{`${user.login}`}</span>
+                {console.log('notifications', notifications)}
+                <Notification notifications={notifications} userId={user._id} />
                 <span
                   className={style.send_message}
                   onClick={() => createConversation(content.userId, user._id)}

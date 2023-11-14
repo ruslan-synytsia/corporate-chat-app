@@ -25,13 +25,11 @@ export const Room = ({ isRoomOpen, setRoomOpen }) => {
     });
 
     socket.on('get_all_private_room_messages', messages => {
-      console.log(messages)
       setMessages(messages);
       setDownloaded(true);
     });
 
     socket.on('get_new_private_message', message => {
-      console.log('get_new_private_message', message)
       setMessages((prevState) => ([ ...prevState, message ]));
     });
 

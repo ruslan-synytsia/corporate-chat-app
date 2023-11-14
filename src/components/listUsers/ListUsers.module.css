@@ -51,6 +51,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
+    position: relative;
     border: 1px solid var(--secondary-color-light);
     padding: .5em;
     margin: 0 0 .5rem 0
